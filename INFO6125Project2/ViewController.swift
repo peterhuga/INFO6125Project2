@@ -27,4 +27,21 @@ class ViewController: UIViewController {
         dollorImageView.image = UIImage(systemName: "dollarsign.circle")
     }
     
+    @IBAction func historyButtonTapped(_ sender: UIButton) {
+        goNextScreen(screen: "goToHistory")
+    }
+    
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        goNextScreen(screen: "goToAdd")
+    }
+    
+    @IBAction func mapButtonTapped(_ sender: UIButton) {
+        goNextScreen(screen: "goToMap")
+    }
+    
+    private func goNextScreen(screen: String){
+        
+        performSegue(withIdentifier: screen, sender: self)
+        
+    }
 }
