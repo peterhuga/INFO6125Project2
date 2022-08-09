@@ -10,21 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var budgetText: UILabel!
     
+    @IBOutlet weak var savingText: UILabel!
     
     @IBOutlet weak var dollorImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sfImageConfig()
-        // Do any additional setup after loading the view.
+         //Do any additional setup after loading the view.
         
     }
     
     private func sfImageConfig(){
         let config = UIImage.SymbolConfiguration(scale: .large)
         dollorImageView.preferredSymbolConfiguration = config
-        dollorImageView.image = UIImage(systemName: "dollarsign.circle")
+        dollorImageView.image = UIImage(systemName: "banknote")
     }
     
     @IBAction func historyButtonTapped(_ sender: UIButton) {
