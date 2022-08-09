@@ -16,12 +16,44 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var dollorImageView: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sfImageConfig()
-         //Do any additional setup after loading the view.
+        //Do any additional setup after loading the view.
         
     }
+    @IBAction func onBudgetButtonTapped(_ sender: UIButton) {
+        
+        var budgetTextField: UITextField?
+        let alertController = UIAlertController(
+            title: "Budget",
+            message: "Please enter your budget for this month",
+            preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(
+            title: "Confirm", style: .default) {
+                (action) -> Void in
+                
+                if let budget = budgetTextField?.text {
+                    print(" Budget = \(budget)")
+                    self.budgetText.text = "$ \(budget)"
+                } else {
+                    print("No Budget Entered")
+                }
+                
+            }
+        alertController.addTextField {
+                (txtBudget) -> Void in
+                budgetTextField = txtBudget
+                budgetTextField!.placeholder = "$CAD"
+            }
+        alertController.addAction(confirmAction)
+            present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
     
     private func sfImageConfig(){
         let config = UIImage.SymbolConfiguration(scale: .large)
@@ -44,6 +76,5 @@ class ViewController: UIViewController {
     private func goNextScreen(screen: String){
         
         performSegue(withIdentifier: screen, sender: self)
-        
     }
 }
