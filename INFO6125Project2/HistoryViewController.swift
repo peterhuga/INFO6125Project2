@@ -15,9 +15,6 @@ class HistoryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func doneTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
     
     /*
     // MARK: - Navigation
