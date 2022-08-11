@@ -9,8 +9,6 @@ import UIKit
 import CoreLocation
 
 class AddViewController: UIViewController {
-
-    @IBOutlet weak var locationLabel: UILabel!
     
     private let locationManager = CLLocationManager()
     
@@ -27,12 +25,8 @@ class AddViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
-    @IBAction func doneTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    
     private func displayLocation(location: String) {
-        locationLabel.text = location
+        print(location)
     }
     
     /*

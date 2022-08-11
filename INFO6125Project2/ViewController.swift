@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         goNextScreen(screen: "goToHistory")
     }
     
+    
     @IBAction func addButtonTapped(_ sender: UIButton) {
         goNextScreen(screen: "goToAdd")
     }
