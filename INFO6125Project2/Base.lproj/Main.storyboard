@@ -215,7 +215,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="RDE-id-wtd" userLabel="Bottom Stack View">
                                 <rect key="frame" x="16" y="696" width="358" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-Ob-GQr">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-Ob-GQr">
                                         <rect key="frame" x="0.0" y="14.666666666666625" width="97.333333333333329" height="40.666666666666657"/>
                                         <size key="titleShadowOffset" width="8" height="8"/>
                                         <state key="normal" title="Button"/>
@@ -232,7 +232,7 @@
                                             <action selector="historyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZI-Th-jKU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-cX-4LR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-cX-4LR">
                                         <rect key="frame" x="130.33333333333334" y="5" width="97.333333333333343" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="fym-ko-LUr"/>
@@ -253,7 +253,7 @@
                                             <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sJC-yU-uyz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28q-3s-7O4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28q-3s-7O4">
                                         <rect key="frame" x="260.66666666666669" y="14.666666666666625" width="97.333333333333314" height="40.666666666666657"/>
                                         <size key="titleShadowOffset" width="8" height="8"/>
                                         <state key="normal" title="Button"/>
@@ -455,6 +455,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="T8J-uB-CI2"/>
                     <connections>
+                        <outlet property="datePicker" destination="2T7-Bq-RGl" id="mjP-6Y-LoG"/>
                         <outlet property="expenseButton" destination="aXh-qS-XcM" id="uxq-bm-dOK"/>
                         <outlet property="figureInput" destination="Zm6-MH-hgo" id="QR4-Jy-ndU"/>
                         <outlet property="incomeButton" destination="M4X-w5-kc2" id="VwG-bj-dhm"/>
@@ -491,11 +492,11 @@
                                 <rect key="frame" x="0.0" y="56" width="390" height="834"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="moneyRecordCell" textLabel="ryX-NN-gQx" detailTextLabel="UAF-aV-ExO" style="IBUITableViewCellStyleValue1" id="9RF-ty-VuT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="moneyRecordCell" textLabel="ryX-NN-gQx" detailTextLabel="UAF-aV-ExO" style="IBUITableViewCellStyleValue1" id="9RF-ty-VuT">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9RF-ty-VuT" id="6Aw-m1-Yq5">
-                                            <rect key="frame" x="0.0" y="0.0" width="349.33333333333331" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ryX-NN-gQx">
@@ -506,7 +507,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UAF-aV-ExO">
-                                                    <rect key="frame" x="297.66666666666663" y="15" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <rect key="frame" x="326.33333333333331" y="15" width="43.666666666666664" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -517,24 +518,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Gk1-yC-vzv">
-                                <rect key="frame" x="0.0" y="368" width="390" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="CLOSE">
-                                            <attributes>
-                                                <font key="NSFont" size="24" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="KDI-YX-CeI" eventType="touchUpInside" id="ryx-Mg-Hh7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xkX-YX-8dd"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
