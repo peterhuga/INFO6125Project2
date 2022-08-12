@@ -10,11 +10,27 @@ import CoreLocation
 
 class AddViewController: UIViewController {
     
-    private let locationManager = CLLocationManager()
+    @IBOutlet weak var figureInput: UITextField!
     
+    @IBOutlet weak var expenseButton: UIButton!
+    @IBOutlet weak var incomeButton: UIButton!
+    @IBOutlet weak var moneyTypePicker: UIPickerView!
+    
+    @IBOutlet weak var moneyTypeLabel: UILabel!
+    
+    
+    private let locationManager = CLLocationManager()
+    let pickerData = ["Grocery", "Transportation", "Education", "Entertainment", "Garments", "Health"]
+    
+    var moneyType = ""
+    var expenseCategory = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Data for moneyTypePicker and connect them
+        self.moneyTypePicker.delegate = self
+        self.moneyTypePicker.dataSource = self
+        
+        
         // Do any additional setup after loading the view.
         
         // related to get the current location
@@ -29,16 +45,46 @@ class AddViewController: UIViewController {
         print(location)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func incomeButtonTapped(_ sender: Any) {
+        //Once selected, disable and enable Expense button
+        incomeButton.isEnabled = false
+        expenseButton.isEnabled = true
+        moneyTypeLabel.text = "This is an income"
+        moneyType = "income"
+        moneyTypePicker.isUserInteractionEnabled = false
+        
+        
     }
-    */
-
+    @IBAction func expenseButtonTapped(_ sender: Any) {
+        
+        incomeButton.isEnabled = true
+        expenseButton.isEnabled = false
+        moneyTypeLabel.text = "This is an expense"
+        moneyType="expense"
+        moneyTypePicker.isUserInteractionEnabled = true
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        let moneyValue = figureInput.text
+        print(moneyType, moneyValue ?? "0", expenseCategory)
+        
+        
+        performSegue(withIdentifier: "goToHistory", sender: self)
+        
+    }
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    //
+    
 }
 
 // related to get the current location
@@ -47,12 +93,29 @@ extension AddViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
-           
+            
             displayLocation(location: "(\(latitude),\(longitude))")
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error happened with location tracking")
+    }
+}
+
+extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        //print(pickerData[row])
+        expenseCategory = pickerData[row]
+        return pickerData[row]
     }
 }
