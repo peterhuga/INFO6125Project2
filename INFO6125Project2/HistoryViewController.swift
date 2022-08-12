@@ -23,6 +23,9 @@ class HistoryViewController: UIViewController {
     private func loadDefaultRecord(){
         records.append(moneyRecord(type: "expense", category: "grocery", value: 0, date:"12-08-2022"))
     }
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
     /*
     // MARK: - Navigation

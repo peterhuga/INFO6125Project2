@@ -488,7 +488,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="brf-Ee-zi9">
-                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
+                                <rect key="frame" x="0.0" y="56" width="390" height="834"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="moneyRecordCell" textLabel="ryX-NN-gQx" detailTextLabel="UAF-aV-ExO" style="IBUITableViewCellStyleValue1" id="9RF-ty-VuT">
@@ -517,6 +517,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Gk1-yC-vzv">
+                                <rect key="frame" x="0.0" y="368" width="390" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="CLOSE">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="KDI-YX-CeI" eventType="touchUpInside" id="ryx-Mg-Hh7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xkX-YX-8dd"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -526,8 +544,8 @@
                             <constraint firstItem="brf-Ee-zi9" firstAttribute="leading" secondItem="xkX-YX-8dd" secondAttribute="leading" id="PFJ-nD-ahD"/>
                             <constraint firstItem="NCt-Be-CdB" firstAttribute="top" secondItem="vGc-Wp-u7t" secondAttribute="top" id="RYd-Kw-kDW"/>
                             <constraint firstItem="NCt-Be-CdB" firstAttribute="trailing" secondItem="xkX-YX-8dd" secondAttribute="trailing" id="Yqe-bI-eCh"/>
-                            <constraint firstItem="xkX-YX-8dd" firstAttribute="bottom" secondItem="brf-Ee-zi9" secondAttribute="bottom" id="dRg-Es-thq"/>
                             <constraint firstItem="NCt-Be-CdB" firstAttribute="leading" secondItem="xkX-YX-8dd" secondAttribute="leading" id="m7B-Lk-vVA"/>
+                            <constraint firstItem="brf-Ee-zi9" firstAttribute="bottom" secondItem="xkX-YX-8dd" secondAttribute="bottom" constant="100" id="muf-PU-TqG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="60t-3l-cZy"/>

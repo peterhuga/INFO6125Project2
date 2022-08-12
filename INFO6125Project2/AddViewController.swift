@@ -21,6 +21,9 @@ class AddViewController: UIViewController {
     
     private let locationManager = CLLocationManager()
     let pickerData = ["Grocery", "Transportation", "Education", "Entertainment", "Garments", "Health"]
+    
+    var moneyType = ""
+    var expenseCategory = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         //Data for moneyTypePicker and connect them
@@ -47,6 +50,8 @@ class AddViewController: UIViewController {
         incomeButton.isEnabled = false
         expenseButton.isEnabled = true
         moneyTypeLabel.text = "This is an income"
+        moneyType = "income"
+        moneyTypePicker.isUserInteractionEnabled = false
         
         
     }
@@ -55,11 +60,18 @@ class AddViewController: UIViewController {
         incomeButton.isEnabled = true
         expenseButton.isEnabled = false
         moneyTypeLabel.text = "This is an expense"
+        moneyType="expense"
+        moneyTypePicker.isUserInteractionEnabled = true
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
+        let moneyValue = figureInput.text
+        print(moneyType, moneyValue ?? "0", expenseCategory)
+        
+        
         performSegue(withIdentifier: "goToHistory", sender: self)
+        
     }
     /*
      // MARK: - Navigation
@@ -102,6 +114,8 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         return pickerData.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        //print(pickerData[row])
+        expenseCategory = pickerData[row]
         return pickerData[row]
     }
 }
