@@ -7,11 +7,13 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class AddViewController: UIViewController {
     
     @IBOutlet weak var figureInput: UITextField!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var expenseButton: UIButton!
     @IBOutlet weak var incomeButton: UIButton!
     @IBOutlet weak var moneyTypePicker: UIPickerView!
@@ -20,18 +22,17 @@ class AddViewController: UIViewController {
     
     
     private let locationManager = CLLocationManager()
-    let pickerData = ["Grocery", "Transportation", "Education", "Entertainment", "Garments", "Health"]
+    private let pickerData = ["Grocery", "Transportation", "Education", "Entertainment", "Garments", "Health"]
     
-    var moneyType = ""
-    var expenseCategory = ""
+    private var moneyType = ""
+    private var expenseCategory = ""
+    private var records : [MoneyRecord] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Data for moneyTypePicker and connect them
         self.moneyTypePicker.delegate = self
         self.moneyTypePicker.dataSource = self
-        
-        
-        // Do any additional setup after loading the view.
         
         // related to get the current location
         locationManager.delegate = self
@@ -50,7 +51,7 @@ class AddViewController: UIViewController {
         incomeButton.isEnabled = false
         expenseButton.isEnabled = true
         moneyTypeLabel.text = "This is an income"
-        moneyType = "income"
+        moneyType = "Income"
         moneyTypePicker.isUserInteractionEnabled = false
         
         
@@ -60,30 +61,42 @@ class AddViewController: UIViewController {
         incomeButton.isEnabled = true
         expenseButton.isEnabled = false
         moneyTypeLabel.text = "This is an expense"
-        moneyType="expense"
+        moneyType="Expense"
         moneyTypePicker.isUserInteractionEnabled = true
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         let moneyValue = figureInput.text
-        print(moneyType, moneyValue ?? "0", expenseCategory)
+        let formattedDate = datePicker.date.formatted(
+            .dateTime
+                .day().month().year()
+            
+        )
+        guard let context = getCoreContext() else {
+            return
+        }
+        let record = MoneyRecord(context: context)
+        print(moneyType, moneyValue ?? "0", expenseCategory,formattedDate)
+        record.type = moneyType
+        
+        record.category = (moneyType=="Income") ? "General" : expenseCategory
+        record.value = moneyValue
+        record.date = formattedDate
+        records.append(record)
+        
+        // Save data to DB
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        print(records[0])
         
         
         performSegue(withIdentifier: "goToHistory", sender: self)
         
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
-    //
+    private func getCoreContext()->NSManagedObjectContext?{
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    }
     
 }
 
