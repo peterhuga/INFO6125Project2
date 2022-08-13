@@ -20,18 +20,21 @@ class HistoryViewController: UIViewController {
         loadFromDB()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
+        //tableView.reloadData()
     }
-    //This is only testing to see if we can add record directly on this screen
-    @IBAction func addButtonTapped(_ sender: Any) {
-    }
+    
 //    private func loadDefaultRecord(){
 //        records.append(moneyRecord(type: "expense", category: "grocery", value: 0, date:"12-08-2022"))
 //    }
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
+    @IBAction func anotherButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToAdd", sender: self)
     }
     
+    @IBAction func homeButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToHome", sender: self)
+        
+        
+    }
     private func loadFromDB (){
         guard let context = getCoreContext() else{
             return
@@ -49,25 +52,9 @@ class HistoryViewController: UIViewController {
     private func getCoreContext()->NSManagedObjectContext?{
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-//struct moneyRecord {
-//    let type: String
-//    let category: String
-//    let value: Int
-//    let date: String
-//}
+
 
 extension HistoryViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +67,9 @@ extension HistoryViewController: UITableViewDataSource{
         var content = cell.defaultContentConfiguration()
         content.text = "$"+(item.value ?? "0")
         content.secondaryText = (item.type ?? "default") + " | " + (item.category ?? "default") + " | " + (item.date ?? "default")
+        
+        //Get lat and lng from database and print out
+        print("\(item.lat),\(item.lng)")
         cell.contentConfiguration = content
         return cell
     }
@@ -93,7 +83,10 @@ extension HistoryViewController: UITableViewDelegate{
         let alertController = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete this record?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "No", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            
+            self.getCoreContext()?.delete(self.records[indexPath.row])
             self.records.remove(at: indexPath.row)
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             tableView.reloadData()
         }))
         self.present(alertController, animated: true)
