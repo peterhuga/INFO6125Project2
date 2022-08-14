@@ -34,7 +34,6 @@ class HistoryViewController: UIViewController {
     @IBAction func homeButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToHome", sender: self)
         
-        
     }
     private func loadFromDB (){
         guard let context = getCoreContext() else{

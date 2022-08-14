@@ -128,7 +128,6 @@ class ViewController: UIViewController {
     }
     
     private func goNextScreen(screen: String){
-        
         performSegue(withIdentifier: screen, sender: self)
     }
 }

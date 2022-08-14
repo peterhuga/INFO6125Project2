@@ -47,7 +47,7 @@ class AddViewController: UIViewController {
     }
     
     private func displayLocation(location: String) {
-        print(location)
+        //print(location)
     }
     
     @IBAction func incomeButtonTapped(_ sender: Any) {
@@ -139,7 +139,7 @@ extension AddViewController: CLLocationManagerDelegate {
             latitude = location.coordinate.latitude
             longitude = location.coordinate.longitude
             
-            displayLocation(location: "(\(latitude),\(longitude))")
+            //displayLocation(location: "(\(latitude),\(longitude))")
         }
     }
     

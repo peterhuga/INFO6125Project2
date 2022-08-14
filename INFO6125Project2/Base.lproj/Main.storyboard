@@ -18,22 +18,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email is missing....." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hG-a1-Ulf">
-                                <rect key="frame" x="43" y="332" width="143" height="21"/>
+                                <rect key="frame" x="43" y="308" width="143" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlR-SM-iMb">
-                                <rect key="frame" x="141.66666666666666" y="144" width="107" height="60"/>
+                                <rect key="frame" x="141.66666666666666" y="144" width="88" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="Bn0-lJ-EmA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNT-xt-r9r">
-                                <rect key="frame" x="104" y="715" width="182" height="60"/>
+                                <rect key="frame" x="104" y="715" width="163" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="TOW-WG-XAA"/>
                                     <constraint firstAttribute="height" constant="60" id="exn-W3-N77"/>
@@ -63,7 +63,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password is missing....." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyf-Mx-gWA">
-                                <rect key="frame" x="42.999999999999986" y="445" width="175.66666666666663" height="21"/>
+                                <rect key="frame" x="42.999999999999986" y="421" width="175.66666666666663" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -218,7 +218,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="RDE-id-wtd" userLabel="Bottom Stack View">
                                 <rect key="frame" x="16" y="696" width="358" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-Ob-GQr">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-Ob-GQr">
                                         <rect key="frame" x="0.0" y="14.666666666666625" width="97.333333333333329" height="40.666666666666657"/>
                                         <size key="titleShadowOffset" width="8" height="8"/>
                                         <state key="normal" title="Button"/>
@@ -235,7 +235,7 @@
                                             <action selector="historyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZI-Th-jKU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-cX-4LR">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-cX-4LR">
                                         <rect key="frame" x="130.33333333333334" y="5" width="97.333333333333343" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="fym-ko-LUr"/>
@@ -256,7 +256,7 @@
                                             <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sJC-yU-uyz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28q-3s-7O4">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28q-3s-7O4">
                                         <rect key="frame" x="260.66666666666669" y="14.666666666666625" width="97.333333333333314" height="40.666666666666657"/>
                                         <size key="titleShadowOffset" width="8" height="8"/>
                                         <state key="normal" title="Button"/>
@@ -321,27 +321,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFM-KW-Bsz">
-                                <rect key="frame" x="166" y="379.66666666666669" width="58" height="31"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wva-re-ZWZ">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="690"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaQ-k5-sNL">
+                                <rect key="frame" x="144" y="725" width="101" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Done"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Home"/>
                                 <connections>
-                                    <action selector="doneTapped:" destination="geU-Af-YDk" eventType="touchUpInside" id="Owh-OG-myz"/>
+                                    <action selector="goToHome:" destination="geU-Af-YDk" eventType="touchUpInside" id="IX2-ed-7KM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gzq-hN-pIt"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
-                            <constraint firstItem="uFM-KW-Bsz" firstAttribute="centerX" secondItem="3Dh-kY-65G" secondAttribute="centerX" id="XOS-GT-CJ0"/>
-                            <constraint firstItem="uFM-KW-Bsz" firstAttribute="centerY" secondItem="3Dh-kY-65G" secondAttribute="centerY" id="ZLw-3j-Keq"/>
+                            <constraint firstItem="wva-re-ZWZ" firstAttribute="top" secondItem="3Dh-kY-65G" secondAttribute="top" id="BP7-pO-0oZ"/>
+                            <constraint firstItem="wva-re-ZWZ" firstAttribute="trailing" secondItem="gzq-hN-pIt" secondAttribute="trailing" id="CgO-db-eSx"/>
+                            <constraint firstItem="wva-re-ZWZ" firstAttribute="leading" secondItem="gzq-hN-pIt" secondAttribute="leading" id="JI9-TW-hjl"/>
+                            <constraint firstItem="gzq-hN-pIt" firstAttribute="trailing" secondItem="uaQ-k5-sNL" secondAttribute="trailing" constant="145" id="WHW-fg-F92"/>
+                            <constraint firstItem="gzq-hN-pIt" firstAttribute="bottom" secondItem="uaQ-k5-sNL" secondAttribute="bottom" constant="34" id="lUW-FW-Wxs"/>
+                            <constraint firstItem="gzq-hN-pIt" firstAttribute="bottom" secondItem="wva-re-ZWZ" secondAttribute="bottom" constant="100" id="t4Q-4y-4hq"/>
+                            <constraint firstItem="uaQ-k5-sNL" firstAttribute="centerX" secondItem="3Dh-kY-65G" secondAttribute="centerX" id="yIM-9K-qNn"/>
+                            <constraint firstItem="uaQ-k5-sNL" firstAttribute="leading" secondItem="gzq-hN-pIt" secondAttribute="leading" constant="144" id="yqC-aX-kye"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHf-g8-JcS"/>
+                    <connections>
+                        <outlet property="mapView" destination="wva-re-ZWZ" id="RoA-RL-6SK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7o-bo-pBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="815"/>
+            <point key="canvasLocation" x="724.61538461538464" y="814.69194312796208"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="erf-VB-ZGN">
