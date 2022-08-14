@@ -218,7 +218,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="RDE-id-wtd" userLabel="Bottom Stack View">
                                 <rect key="frame" x="16" y="696" width="358" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-Ob-GQr">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUd-Ob-GQr">
                                         <rect key="frame" x="0.0" y="14.666666666666625" width="97.333333333333329" height="40.666666666666657"/>
                                         <size key="titleShadowOffset" width="8" height="8"/>
                                         <state key="normal" title="Button"/>
@@ -235,7 +235,7 @@
                                             <action selector="historyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZI-Th-jKU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-cX-4LR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpO-cX-4LR">
                                         <rect key="frame" x="130.33333333333334" y="5" width="97.333333333333343" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="fym-ko-LUr"/>
@@ -256,7 +256,7 @@
                                             <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sJC-yU-uyz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28q-3s-7O4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28q-3s-7O4">
                                         <rect key="frame" x="260.66666666666669" y="14.666666666666625" width="97.333333333333314" height="40.666666666666657"/>
                                         <size key="titleShadowOffset" width="8" height="8"/>
                                         <state key="normal" title="Button"/>

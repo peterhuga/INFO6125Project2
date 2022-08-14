@@ -11,6 +11,7 @@ import CoreData
 class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    let defaults = UserDefaults.standard
     
     private var records: [MoneyRecord] = []
     override func viewDidLoad() {
@@ -83,7 +84,18 @@ extension HistoryViewController: UITableViewDelegate{
         let alertController = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete this record?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "No", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            
+            let record = self.records[indexPath.row]
+            // Read data from user defaults and subtract the deleted value and save.
+            if(record.type=="Expense"){
+                let expense = self.defaults.integer(forKey: "Expense")
+                //print("Expense", expense)
+                self.defaults.set(expense - (Int(record.value ?? "0") ?? 0), forKey: "Expense")
+            }
+            if(record.type=="Income"){
+                let income = self.defaults.integer(forKey: "Income")
+                //print("Expense", expense)
+                self.defaults.set(income - (Int(record.value ?? "0") ?? 0), forKey: "Income")
+            }
             self.getCoreContext()?.delete(self.records[indexPath.row])
             self.records.remove(at: indexPath.row)
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
