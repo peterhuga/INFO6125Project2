@@ -10,13 +10,11 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
-    @IBOutlet weak var incomeText: UILabel!
     
+    @IBOutlet weak var incomeText: UILabel!
     @IBOutlet weak var expenseText: UILabel!
     @IBOutlet weak var budgetText: UILabel!
-    
     @IBOutlet weak var savingText: UILabel!
-    
     @IBOutlet weak var budgetProgressView: UIProgressView!
     @IBOutlet weak var dollorImageView: UIImageView!
     private var records:[MoneyRecord] = []
@@ -26,16 +24,17 @@ class ViewController: UIViewController {
     private let keyExpense = "Expense"
     private var progressViewValue: Float = 0.0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         sfImageConfig()
         
-        
-        
-        //Do any additional setup after loading the view.
-        
+        //Clearing user defaults for testing, comment out the following 4 lines after clearing.
+//        let domain = Bundle.main.bundleIdentifier!
+//        UserDefaults.standard.removePersistentDomain(forName: domain)
+//        UserDefaults.standard.synchronize()
+//        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         let budget = defaults.string(forKey: keyBudget) ?? "0"
