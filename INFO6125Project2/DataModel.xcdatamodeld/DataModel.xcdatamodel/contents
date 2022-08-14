@@ -3,10 +3,12 @@
     <entity name="MoneyRecord" representedClassName=".MoneyRecord" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="date" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String"/>
         <attribute name="value" attributeType="String"/>
     </entity>
     <elements>
-        <element name="MoneyRecord" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="MoneyRecord" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

@@ -27,6 +27,10 @@ class AddViewController: UIViewController {
     private var moneyType = ""
     private var expenseCategory = ""
     private var records : [MoneyRecord] = []
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,34 +70,62 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
         let moneyValue = figureInput.text
-        let formattedDate = datePicker.date.formatted(
-            .dateTime
-                .day().month().year()
+        
+        //Check user's input
+        if (moneyType=="" || moneyValue==nil){
+            let alertController = UIAlertController(title: "Something missing", message: "Did you select a money type and enter the value?", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+        } else{
+            let formattedDate = datePicker.date.formatted(
+                .dateTime
+                    .day().month().year()
+                
+            )
+            // Getting total income or expense from user defauts and update it
+            if(moneyType=="Expense"){
+                let expense = defaults.integer(forKey: "Expense")
+                //print("Expense", expense)
+                defaults.set(expense + (Int(moneyValue ?? "0") ?? 0), forKey: "Expense")
+            }
+            if(moneyType=="Income"){
+                let expense = defaults.integer(forKey: "Income")
+                //print("Expense", expense)
+                defaults.set(expense + (Int(moneyValue ?? "0") ?? 0), forKey: "Income")
+            }
             
-        )
-        guard let context = getCoreContext() else {
-            return
+            
+            guard let context = getCoreContext() else {
+                return
+            }
+            let record = MoneyRecord(context: context)
+            //print(moneyType, moneyValue ?? "0", expenseCategory,formattedDate)
+            record.type = moneyType
+            
+            record.category = (moneyType=="Income") ? "General" : expenseCategory
+            record.value = moneyValue
+            record.date = formattedDate
+            record.lat = latitude
+            record.lng = longitude
+            records.append(record)
+            
+            // Save data to DB
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            //print(records[0])
+            
+            
+            performSegue(withIdentifier: "goToHistory", sender: self)
         }
-        let record = MoneyRecord(context: context)
-        print(moneyType, moneyValue ?? "0", expenseCategory,formattedDate)
-        record.type = moneyType
-        
-        record.category = (moneyType=="Income") ? "General" : expenseCategory
-        record.value = moneyValue
-        record.date = formattedDate
-        records.append(record)
-        
-        // Save data to DB
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-        print(records[0])
         
         
-        performSegue(withIdentifier: "goToHistory", sender: self)
+        
         
     }
     
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion:nil)
+    }
     private func getCoreContext()->NSManagedObjectContext?{
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     }
@@ -104,8 +136,8 @@ class AddViewController: UIViewController {
 extension AddViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
             
             displayLocation(location: "(\(latitude),\(longitude))")
         }
