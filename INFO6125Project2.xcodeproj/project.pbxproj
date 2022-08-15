@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4251CFE228A9B5550073B3B1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4251CFE128A9B5550073B3B1 /* FirebaseAuth */; };
+		4251CFE428A9B6600073B3B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4251CFE328A9B6600073B3B1 /* GoogleService-Info.plist */; };
 		42F05EB728A179D700B420B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F05EB628A179D700B420B9 /* LoginViewController.swift */; };
 		42F05EB928A17E7300B420B9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F05EB828A17E7300B420B9 /* HistoryViewController.swift */; };
 		42F05EBB28A17EB500B420B9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F05EBA28A17EB500B420B9 /* AddViewController.swift */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4251CFE328A9B6600073B3B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42F05EB628A179D700B420B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42F05EB828A17E7300B420B9 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		42F05EBA28A17EB500B420B9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4251CFE228A9B5550073B3B1 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +80,7 @@
 				D4C69AD8288DD29500AB6743 /* Main.storyboard */,
 				D4C69ADB288DD29600AB6743 /* Assets.xcassets */,
 				D4C69ADD288DD29600AB6743 /* LaunchScreen.storyboard */,
+				4251CFE328A9B6600073B3B1 /* GoogleService-Info.plist */,
 				D4C69AE0288DD29600AB6743 /* Info.plist */,
 				D4AF8CAE28A6C1F300B7C57F /* DataModel.xcdatamodeld */,
 			);
@@ -98,6 +103,9 @@
 			dependencies = (
 			);
 			name = INFO6125Project2;
+			packageProductDependencies = (
+				4251CFE128A9B5550073B3B1 /* FirebaseAuth */,
+			);
 			productName = INFO6125Project2;
 			productReference = D4C69ACF288DD29500AB6743 /* INFO6125Project2.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +134,9 @@
 				Base,
 			);
 			mainGroup = D4C69AC6288DD29500AB6743;
+			packageReferences = (
+				4251CFE028A9B5550073B3B1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = D4C69AD0288DD29500AB6743 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C69ADF288DD29600AB6743 /* LaunchScreen.storyboard in Resources */,
+				4251CFE428A9B6600073B3B1 /* GoogleService-Info.plist in Resources */,
 				D4C69ADC288DD29600AB6743 /* Assets.xcassets in Resources */,
 				D4C69ADA288DD29500AB6743 /* Main.storyboard in Resources */,
 			);
@@ -309,11 +321,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = INFO6125Project2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Grant access to your location to get the realtime weather details";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,11 +349,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = INFO6125Project2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Grant access to your location to get the realtime weather details";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,6 +390,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4251CFE028A9B5550073B3B1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4251CFE128A9B5550073B3B1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4251CFE028A9B5550073B3B1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D4AF8CAE28A6C1F300B7C57F /* DataModel.xcdatamodeld */ = {

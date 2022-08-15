@@ -15,10 +15,11 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     private var records: [MoneyRecord] = []
+    var coordinates: [CLLocation] = []
     
     var latitude: Double = 0.0
     var longitude: Double = 0.0
-    var mainTitle: String = "Last Entry"
+    var mainTitle: String = ""
     
     //var locationsArray: [[Double]] = [[42.9865996,-81.2780933, 400],[42.9795996,-81.2800933, 300],[42.9685996,-81.2790933, 250],[42.9575996,-81.2780933, 134],[42.9465996,-81.2770933, 245]]
     
@@ -38,7 +39,11 @@ class MapViewController: UIViewController {
         
         //addNewAnnotation(location: locationsArray)
         setupMap()
-        addAnnotation(location: CLLocation(latitude: latitude, longitude: longitude))
+        //addAnnotation(location: CLLocation(latitude: latitude, longitude: longitude))
+        
+        for coord in coordinates {
+            addAnnotation(location: coord)
+        }
         
         
     }
@@ -68,6 +73,11 @@ class MapViewController: UIViewController {
             if(records.count != 0){
                 latitude = records.last!.lat
                 longitude = records.last!.lng
+                
+                for record in records {
+                    let clLocation = CLLocation(latitude: record.lat, longitude: record.lng)
+                    coordinates.append(clLocation)
+                }
 
             }
             

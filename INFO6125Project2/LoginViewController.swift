@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -31,22 +32,37 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text
         let password = passwordTextField.text
         
-        if (email == "test" && password == "password"){
-        
-            //go to main screen
-            performSegue(withIdentifier: "goToMain", sender: self)
-        } else {
+        Auth.auth().signIn(withEmail: email!, password: password!) { [weak self] authResult, error in
             
-            loginButton.isEnabled = false
-            let alert = UIAlertController(title: "Authentication", message: "Try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default) { _ in
-                self.passwordTextField.text = ""
-                self.passwordErrorLabel.isHidden = false
-                self.numberPassword = 0
-                            }
-            alert.addAction(okButton)
-            self.show(alert, sender: nil)
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if error != nil {
+                strongSelf.loginButton.isEnabled = false
+                let alert = UIAlertController(title: "Authentication", message: "Try again!", preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .default) { _ in
+                    strongSelf.passwordTextField.text = ""
+                    strongSelf.passwordErrorLabel.isHidden = false
+                    strongSelf.numberPassword = 0
+                                }
+                alert.addAction(okButton)
+                strongSelf.show(alert, sender: nil)
+                
+                return
+            }
+            
+            
+            strongSelf.emailTextField.text = ""
+            strongSelf.passwordTextField.text = ""
+            strongSelf.emailTextField.becomeFirstResponder()
+            
+            strongSelf.navigateToWelcome()
         }
+    }
+    
+    private func navigateToWelcome() {
+        performSegue(withIdentifier: "goToMain", sender: self)
     }
     
     @IBAction func emailEditingChanged(_ sender: UITextField) {
